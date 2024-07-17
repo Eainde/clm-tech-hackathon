@@ -1,0 +1,21 @@
+server:
+  port: 3333
+
+spring:
+  config:
+    import: configserver:http://localhost:1111
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+      routes:
+      - id: SHOPPING-DATA-SERVICE
+        uri: localhost:8444
+        predicates:
+        - Path=/shopping
+    compatibility-verifier:
+      enabled: false

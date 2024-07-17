@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.db</groupId>
+    <artifactId>clm-tech-hackathon</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <spring-boot-dependencies.version>3.2.0</spring-boot-dependencies.version>
+        <spring-cloud.version>2022.0.3</spring-cloud.version>
+        <spotless.version>2.41.1</spotless.version>
+        <palantir-format.version>2.29.0</palantir-format.version>
+    </properties>
+
+    <modules>
+        <module>config-server</module>
+        <module>discovery-server</module>
+        <module>shopping-data-service</module>
+        <module>gateway</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.diffplug.spotless</groupId>
+                <artifactId>spotless-maven-plugin</artifactId>
+                <version>${spotless.version}</version>
+                <configuration>
+                    <java>
+                        <encoding>UTF-8</encoding>
+                        <includes>
+                            <include>src/main/java/**</include>
+                            <include>src/test/java/**</include>
+                            <include>src/acceptance/java/**</include>
+                            <include>src/it/java/**</include>
+                        </includes>
+                        <importOrder>
+                            <wildcardsLast>true</wildcardsLast>
+                            <order>com, diffplug, java, javax, org, static</order>
+                        </importOrder>
+                        <removeUnusedImports />
+                        <!--<palantirJavaFormat >
+                            <version>${palantir-format.version}</version>
+                        </palantirJavaFormat>-->
+                        <formatAnnotations />
+                    </java>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>apply</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>apply</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
