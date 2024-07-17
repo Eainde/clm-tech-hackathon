@@ -62,7 +62,7 @@
                         </includes>
                         <importOrder>
                             <wildcardsLast>true</wildcardsLast>
-                            <order>com, diffplug, java, javax, org, static</order>
+                            <user>com, diffplug, java, javax, org, static</user>
                         </importOrder>
                         <removeUnusedImports />
                         <!--<palantirJavaFormat >

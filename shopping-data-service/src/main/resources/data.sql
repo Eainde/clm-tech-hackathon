@@ -1,6 +1,6 @@
-CREATE TABLE USER_ORDER(order_id int, description varchar, country varchar, quantity int);
+CREATE TABLE APP_USER (user_id int, user_name varchar, email varchar, user_role varchar);
 
-insert into USER_ORDER (order_id, description, country, quantity) values (1, 'Akshay', 'UK', 30);
-insert into USER_ORDER (order_id, description, country, quantity) values (2, 'Ashish', 'UK', 33);
-insert into USER_ORDER (order_id, description, country, quantity) values (3, 'Praveen', 'UK', 34);
-insert into USER_ORDER (order_id, description, country, quantity) values (4, 'Parshuram', 'UK', 28);
+insert into APP_USER (user_id, user_name, email, user_role) values (1, 'JOHN', 'JOHN@gmail.com', 'CARER');
+insert into APP_USER (user_id, user_name, email, user_role) values (2, 'JOSH', 'JOSH@gmail.com', 'CARER');
+insert into APP_USER (user_id, user_name, email, user_role) values (3, 'MAX', 'MAX@gmail.com', 'PATIENT');
+insert into APP_USER (user_id, user_name, email, user_role) values (4, 'ALEX', 'ALEX@gmail.com', 'PATIENT');

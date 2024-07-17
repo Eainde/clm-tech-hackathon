@@ -27,7 +27,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-    basePackages = "com.eainde.order.repository",
+    basePackages = "com.db.clm.hackathon.data.repository",
     entityManagerFactoryRef = "entityManager",
     transactionManagerRef = "transactionManager")
 public class DatabaseConfiguration {
@@ -55,7 +55,7 @@ public class DatabaseConfiguration {
     return builder
         .dataSource(dataSource())
         .properties(hibernateProperties())
-        .packages("com.eainde.order.entity")
+        .packages("com.db.clm.hackathon.data.entity")
         .persistenceUnit("pu")
         .build();
   }
